@@ -71,6 +71,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | Note | Use when |
 |---|---|
 | [Interview opener checklist](notes/interview-opener-checklist.md) | first 90 seconds of every round |
+| [Built-in vs hand-roll](notes/builtin-vs-handroll.md) | deciding whether to use `[::-1]`, `Counter`, `sorted` vs write the algorithm |
 | [Gotchas that eat interviews](notes/gotchas.md) | when "works on small input but fails submission" |
 
 ---
