@@ -34,6 +34,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [Integer division with negatives](notes/integer-division-with-negatives.md) | LC 7, 29, 166 | modulo, digit_extraction |
 | [Overflow-safe arithmetic](notes/overflow-safe-arithmetic.md) | LC 7, 8, 29, 50 | overflow_detection |
 | [float('inf') sentinels](notes/float-inf.md) | LC 64, 84, 121, 322, 743, 787 | dp_min, graph_dist |
+| [Sign handling — negate, don't concat](notes/sign-handling.md) | LC 7, 8, 29, 43, 50, 166 | sign_handling, type_boundary |
 | [divmod for grid indexing](notes/divmod-for-grid-indexing.md) | LC 54, 59, 66, 67, 168, 415 | matrix, carry |
 | [ord/chr alphabet indexing](notes/ord-chr-alphabet-index.md) | LC 49, 208, 242, 383, 438, 567, 848 | anagram, trie |
 
