@@ -88,3 +88,27 @@ Counter("aab") + Counter("abc")  # Counter({'a':3, 'b':2, 'c':1})  — multiset 
 **Gotcha 3 — elements must be hashable.** `set([[1,2], [3,4]])` → TypeError. Convert nested lists to tuples first: `set(tuple(row) for row in matrix)`.
 
 **Gotcha 4 — regular `set` isn't hashable.** For a set-of-sets, use `frozenset`.
+
+**Gotcha 5 — `set()` LOSES MULTIPLICITY.** `set("aab") == set("abb")` is True (both `{'a','b'}`), but they're not anagrams. `set()` only says "which distinct elements exist," not "how many of each." For multiset equality (anagram / permutation / histogram comparison), use `Counter`:
+
+```python
+# BROKEN — passes visible tests, fails adversarial ones (LC 242, 438, 567)
+set(s) == set(t) and len(s) == len(t)     # ← false-positive on "aab" vs "abb"
+
+# CORRECT
+from collections import Counter
+Counter(s) == Counter(t)                   # compares counts, not just distinct chars
+
+# or sorted
+sorted(s) == sorted(t)                     # same result, O(n log n)
+
+# or count array (O(n), O(1) for bounded alphabet)
+def is_anagram(s, t):
+    if len(s) != len(t): return False
+    count = [0] * 26
+    for c in s: count[ord(c) - ord('a')] += 1
+    for c in t: count[ord(c) - ord('a')] -= 1
+    return all(x == 0 for x in count)
+```
+
+**Rule of thumb:** `set` for existence / distinct check. `Counter` for "how many of each."
