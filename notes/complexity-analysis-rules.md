@@ -96,7 +96,37 @@ min(arr, key=f)   # O(n) calls to f + O(n) compares
 
 Interviewer will ask "what's the complexity of `sorted(arr)`?" — if you say O(n) you lose signal.
 
-## Rule 5 — Set/dict lookup is "O(1) expected," not "O(1) guaranteed"
+## Rule 5 — Nested loops aren't always O(n²) — check if pointers RESET
+
+The most-missed rule. **Nested while doesn't multiply if the inner pointer never resets.**
+
+```python
+# O(n²) — inner ALWAYS starts at 0
+for i in range(n):
+    for j in range(n):              # fresh j every iteration
+        ...
+
+# O(n) — inner picks up where left off
+l = 0
+for r in range(n):
+    while l < r and cond(l):        # l never resets to 0
+        l += 1
+```
+
+In the second form, `l` only advances. Across all outer iterations, `l` moves at most `n` times TOTAL. So total inner work is `n`, not `n × n`.
+
+**Where it matters:**
+- LC 125 Valid Palindrome (two-pointer with skip-non-alnum) — O(n), not O(n²)
+- LC 3 Longest Substring Without Repeating — sliding window, O(n)
+- LC 76 Minimum Window Substring — sliding window, O(n)
+- LC 209 Min Size Subarray Sum — sliding window, O(n)
+- LC 26 Remove Duplicates — read/write pointers, O(n)
+
+**The rule of thumb:** if both pointers move **monotonically** (only forward, no resets), total work is bounded by their max travel distance — usually O(n) total even with nested loops.
+
+This is **amortized analysis** — average cost per outer iteration is constant, even if individual ones are expensive.
+
+## Rule 6 — Set/dict lookup is "O(1) expected," not "O(1) guaranteed"
 
 Hash collisions make dict/set ops O(n) worst case (all keys land in same bucket). In practice this never happens with well-designed hash functions — but be ready to say "O(1) expected / O(n) worst" if asked for guarantees.
 
@@ -108,8 +138,9 @@ Ask yourself:
 3. **Am I sorting somewhere?** `sorted` / `.sort()` = O(n log n) hidden
 4. **Am I slicing?** `arr[a:b]` = O(b-a) hidden copy
 5. **Am I creating intermediate collections?** List comp / `list(gen)` / `set(iter)` = O(n) space each
+6. **If I have nested loops, do the pointers RESET each iteration?** If they only advance monotonically, total is O(n), not O(n²).
 
-If you answer "yes" to any, add that cost to your analysis.
+If you answer "yes" to any, add (or subtract!) that cost from your analysis.
 
 ## The one-sentence interview line
 
