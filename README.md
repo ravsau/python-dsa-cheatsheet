@@ -66,6 +66,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 ### Patterns (templates + anchors)
 | Note | Triggers on | Complexity |
 |---|---|---|
+| [Two-pointer variants — the family tree](notes/two-pointer-variants.md) | converging / sliding / fast-slow / read-write taxonomy | O(n) family |
 | [Two pointers](notes/two-pointers-template.md) | LC 11, 15, 26, 42, 125, 167, 283, 344 | O(n) |
 | [Sliding window](notes/sliding-window-template.md) | LC 3, 76, 209, 239, 424, 438, 567 | O(n) |
 | [Top-K combo (three ways)](notes/top-k-combo.md) | LC 215, 347, 451, 692, 703, 973, 1636 | O(n log k) |
