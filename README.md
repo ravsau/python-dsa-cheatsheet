@@ -71,6 +71,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [Sliding window](notes/sliding-window-template.md) | LC 3, 76, 209, 239, 424, 438, 567 | O(n) |
 | [Top-K combo (three ways)](notes/top-k-combo.md) | LC 215, 347, 451, 692, 703, 973, 1636 | O(n log k) |
 | [Two-pass from both sides](notes/two-pass-from-both-sides.md) | LC 42, 123, 135, 238, 724 | O(n) time |
+| [Hash-map complement — check before store](notes/hash-map-complement-pattern.md) | LC 1, 219, 523, 560, 974 | O(n) |
 
 ### Meta
 | Note | Use when |
