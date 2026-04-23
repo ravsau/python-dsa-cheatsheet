@@ -62,6 +62,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [itertools.pairwise](notes/itertools-pairwise.md) | LC 164, 217, 674, 896 | adjacent_check |
 | [itertools.combinations / permutations / product](notes/itertools-combinations-permutations.md) | LC 17, 46, 47, 77, 78 | enumeration |
 | [String / number one-liners](notes/string-one-liners.md) | LC 14, 20, 28, 67, 125, 151, 191, 372, 1979 | parsing |
+| [Character classification — isalpha, isdigit, isalnum...](notes/character-classification.md) | LC 8, 125, 165, 387, 1768 | string_filtering, parsing |
 
 ### Patterns (templates + anchors)
 | Note | Triggers on | Complexity |
