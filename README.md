@@ -24,6 +24,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [reversed() vs [::-1]](notes/reversed-vs-slicing.md) | LC 9, 42, 125, 151, 238 | reverse_iteration |
 | [range backwards](notes/range-backwards.md) | LC 42, 84, 198, 238, 496 | reverse_iteration, monotonic_stack |
 | [range() off-by-one — when to subtract 1](notes/range-off-by-one.md) | LC 1, 5, 42, 198, 238, 674 | iteration_bounds |
+| [Inclusive vs exclusive bounds — the `+1`](notes/inclusive-vs-exclusive-bounds.md) | LC 3, 76, 209, 424 | sliding_window, fencepost |
 | [List comprehension patterns](notes/list-comprehension-patterns.md) | LC 1, 54, 62, 200, 448, 771 | filter, 2D_init, flatten |
 | [Walrus `:=`](notes/walrus-operator.md) | LC 20, 234, 876 | linked_list, parse_loops |
 | [Chained comparison + misc gotchas](notes/gotchas.md) | catch-all | correctness |
