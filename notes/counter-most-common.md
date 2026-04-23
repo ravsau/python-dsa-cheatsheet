@@ -43,3 +43,55 @@ Counter("aab") | Counter("abc")      # Counter({'a': 2, 'b': 1, 'c': 1})  — un
 **Gotcha 2 — negative counts.** Counter allows negatives (from subtraction without `-`), but `most_common` returns them in numeric order like any int — not always what you want.
 
 **Gotcha 3 — missing keys return 0, not KeyError.** `Counter()["never_seen"] == 0`. Unlike a plain dict. Useful for difference checks without `defaultdict`.
+
+---
+
+## Counter internals (when the interviewer asks)
+
+Counter is a **dict subclass** (~10 lines of real logic). Here's the essence:
+
+```python
+class MyCounter(dict):
+    def __init__(self, iterable=None):
+        super().__init__()
+        if iterable is not None:
+            for item in iterable:
+                self[item] = self.get(item, 0) + 1     # O(n) single pass
+
+    def __missing__(self, key):
+        return 0                                        # missing keys → 0, not KeyError
+
+    def most_common(self, n=None):
+        import heapq
+        if n is None:
+            return sorted(self.items(), key=lambda x: -x[1])        # O(k log k)
+        return heapq.nlargest(n, self.items(), key=lambda x: x[1])  # O(k log n)
+```
+
+**What the real `Counter` adds on top:** `+`, `-`, `&`, `|` arithmetic for multiset operations; `.subtract()` allowing negatives; `.elements()` iterator.
+
+**Why `Counter(s) == Counter(t)` works for anagram:** since Counter inherits from dict, `==` is dict equality — order-insensitive, compares key-value pairs. `{'a':2, 'b':1} == {'b':1, 'a':2}` is True.
+
+**Counter vs defaultdict(int) vs manual dict:**
+
+```python
+# manual
+d = {}
+for c in s: d[c] = d.get(c, 0) + 1
+
+# defaultdict
+from collections import defaultdict
+d = defaultdict(int)
+for c in s: d[c] += 1
+
+# Counter (preferred for frequency)
+from collections import Counter
+d = Counter(s)
+```
+
+All three are O(n) with the same asymptotic complexity. Counter wins on readability + built-in `.most_common` + arithmetic operators.
+
+**Senior interview move:** after writing `Counter(s) == Counter(t)`, volunteer:
+> "Counter is a dict subclass — it's O(n) to build, O(1) amortized per insert. Equality falls through to dict equality, which compares key-value pairs ignoring insertion order. If you'd prefer I skip the stdlib, I can use a 26-slot count array — same O(n) time, O(1) space since the alphabet is bounded."
+
+One sentence → demonstrates knowledge of internals AND of the optimization ladder.
