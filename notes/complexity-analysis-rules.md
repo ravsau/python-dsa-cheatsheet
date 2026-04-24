@@ -126,7 +126,46 @@ In the second form, `l` only advances. Across all outer iterations, `l` moves at
 
 This is **amortized analysis** — average cost per outer iteration is constant, even if individual ones are expensive.
 
-## Rule 6 — Set/dict lookup is "O(1) expected," not "O(1) guaranteed"
+## Rule 6 — Subtract-a-constant is O(n); divide-by-a-constant is O(log n)
+
+The shape of how your input shrinks each iteration determines the complexity class. This trips people up constantly.
+
+```
+"subtract 2 each step"     → n steps total → O(n)
+"halve each step"          → log n steps   → O(log n)
+```
+
+| Shrink pattern | Example | Steps | Complexity |
+|---|---|---|---|
+| Subtract constant | `left += 1, right -= 1` (two-pointer swap) | n/2 | **O(n)** |
+| Divide by 2 | binary search, halving each iter | log₂(n) | **O(log n)** |
+| Subtract by √n | sieve of Eratosthenes edges | √n | O(√n) |
+| Divide by k | log base k | log_k(n) | O(log n) (same class, constants drop) |
+
+**The mental test:** *"Does each iteration remove a FIXED AMOUNT or a FIXED FRACTION?"*
+- Fixed amount → linear (O(n))
+- Fixed fraction → logarithmic (O(log n))
+
+**Massive practical difference at n = 10⁶:**
+| Complexity | Steps |
+|---|---|
+| O(n) | 1,000,000 |
+| O(n/2) | 500,000 ← still O(n) |
+| O(√n) | ~1,000 |
+| O(log n) | ~20 |
+
+Halving doesn't just make things faster — it changes the **category**.
+
+**Where it matters:**
+- LC 344 Reverse String — two-pointer swap, subtracts 2/iter → O(n)
+- LC 125 Valid Palindrome — same shape → O(n)
+- LC 704 Binary Search — halves per iter → O(log n)
+- LC 33 Search in Rotated — halves per iter → O(log n)
+- LC 74 Search 2D Matrix — binary search on flattened → O(log(mn))
+
+**Gotcha:** "Reducing by a constant each iteration" feels like it should be fast — but it's still linear. Only DIVIDING (cutting by a factor) gets you log n.
+
+## Rule 7 — Set/dict lookup is "O(1) expected," not "O(1) guaranteed"
 
 Hash collisions make dict/set ops O(n) worst case (all keys land in same bucket). In practice this never happens with well-designed hash functions — but be ready to say "O(1) expected / O(n) worst" if asked for guarantees.
 
