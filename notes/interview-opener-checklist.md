@@ -87,6 +87,36 @@ Common Google follow-ups — have a one-liner ready for each:
 
 ---
 
+## What the interviewer is listening for in each phase
+
+The opener above is *what you do*. This table is *what they're grading* while you do it. Knowing both lets you send the right signal at the right moment.
+
+| Phase | What they listen for |
+|---|---|
+| **Restate** | Do you understand the problem without just reading it back verbatim? Can you rephrase in your own words? |
+| **Clarify** | Do you probe edge cases (empty input, duplicates, bounds) — or assume? |
+| **Approach discussion** | Do you *name the pattern* (stack, hash map, sliding window)? Compare at least one alternative? |
+| **Trace example** | Can you simulate your algorithm by hand with a concrete input? Do you catch your own bugs mid-trace? |
+| **Complexity** | Do you *volunteer* time and space without being asked? Do you reason "because [one sentence]"? |
+| **Check-in** | Do you invite feedback ("does this make sense?") or barrel ahead? Senior engineers check in. |
+| **Coding** | Do you keep narrating as you type? Do you use meaningful variable names? Is the code readable on the page? |
+| **Testing** | Do you re-read your code line-by-line before submitting? Do you trace one concrete example after writing? |
+| **Follow-up readiness** | Do you have an answer ready when they ask "what if the input is streamed / sorted / k is huge"? |
+
+**Red flags to avoid:**
+- Jumping to code without stating approach
+- Missing complexity analysis
+- Silent typing (interviewer doesn't know what you're thinking)
+- "I don't know" instead of "Let me think for 30 seconds"
+- Making assumptions aloud without asking
+
+**Green flags to send:**
+- "Let me restate..." (shows comprehension before solving)
+- "A few clarifications..." (shows you think about edges)
+- "The naive approach is O(n²) — we can do better with..." (shows you compare)
+- "Time O(n), space O(n), because..." (volunteered complexity with reasoning)
+- "Before I code, does this approach make sense?" (shows collaboration)
+
 ## Muscle memory drill
 
 Run this checklist on every single problem for 3 days. By Day 4 it's automatic and you'll never skip it under pressure.
