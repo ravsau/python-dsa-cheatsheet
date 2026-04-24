@@ -117,6 +117,49 @@ The opener above is *what you do*. This table is *what they're grading* while yo
 - "Time O(n), space O(n), because..." (volunteered complexity with reasoning)
 - "Before I code, does this approach make sense?" (shows collaboration)
 
+## Trust the constraints — don't defend what's guaranteed
+
+A subtle but important interview signal: **read the constraint box, then trust it.**
+
+Adding validation against things the problem guarantees is:
+- Dead code (the check can never fire)
+- A signal you didn't read the constraints
+- Wasted interview time
+
+**Common over-defenses to avoid:**
+
+```python
+# LC 20 says "s consists only of brackets"
+if c not in valid_brackets:  return False          # ← DEAD CODE
+
+# LC 1 says "each input has exactly one solution"
+if complement not in seen:  return []              # ← can never happen
+
+# LC 121 constraint: 1 <= prices.length
+if not prices: return 0                             # ← constraint guarantees non-empty
+
+# LC 242 constraint: both strings are lowercase letters
+if c.isupper():  ...                                # ← can never happen
+```
+
+**The collaborative move:**
+
+If you're unsure whether a constraint is strict, ASK:
+
+> "The constraints say only lowercase letters — I'll trust that and skip the case check. If you want me to handle mixed case, happy to add it. Preference?"
+
+That sentence shows you:
+- Read the constraints
+- Know when to validate vs trust
+- Collaborate instead of assume
+
+**When DO you validate:**
+- At real system boundaries (API inputs, user forms, file reads)
+- When constraints are unclear or absent
+- When the interviewer explicitly asks "what if X"
+
+Otherwise: trust and move on.
+
 ## Muscle memory drill
 
 Run this checklist on every single problem for 3 days. By Day 4 it's automatic and you'll never skip it under pressure.
