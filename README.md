@@ -77,6 +77,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 ### Meta
 | Note | Use when |
 |---|---|
+| [**Must memorize cold**](notes/must-memorize-cold.md) | **the syntax muscle-memory drill — read weekly until reflexive** ⭐ |
 | [Interview opener checklist](notes/interview-opener-checklist.md) | first 90 seconds of every round |
 | [Built-in vs hand-roll](notes/builtin-vs-handroll.md) | deciding whether to use `[::-1]`, `Counter`, `sorted` vs write the algorithm |
 | [Complexity analysis rules](notes/complexity-analysis-rules.md) | recursion stack, heap-size bounded ops, amortized, hidden Python costs |
