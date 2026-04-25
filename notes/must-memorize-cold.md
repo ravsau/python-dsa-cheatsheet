@@ -153,6 +153,16 @@
 | char to index 0..25 | `ord(c) - ord('a')` |
 | index to char | `chr(i + ord('a'))` |
 
+## None / null / empty
+
+| Goal | Code |
+|---|---|
+| "null" in Python | `None` (NOT `null`) |
+| check None | `if x is None:` (use `is`, not `==`) |
+| check non-None | `if x is not None:` |
+| empty check (any falsy) | `if not x:` (matches None, 0, "", [], {}) |
+| default-None pattern | `def f(arr=None): arr = arr or []` |
+
 ## Class basics
 
 | Goal | Code |
