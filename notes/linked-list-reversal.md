@@ -149,3 +149,16 @@ In iterative, you carry `prev` explicitly. In recursive, **the call stack IS you
 **Gotcha 3 — Python's recursion limit.** Default is ~1000. For a 5000-node list (LC 206 max constraint), you may hit `RecursionError`. Either bump `sys.setrecursionlimit(10**4)` or just use iterative.
 
 **Gotcha 4 — the iterative tuple-swap order.** `curr.next, prev, curr = prev, curr, curr.next` — the RHS order is `(prev, curr, curr.next)`, NOT `(prev, curr.next, curr)`. Get this wrong and the list shifts wrong. Stick to the 4-line expanded form unless you've drilled the one-liner.
+
+**Gotcha 5 — return `prev`, NOT `curr`.** At loop exit, `curr` is `None` (that's what made the loop terminate). The new head is `prev` — it's been lagging one step behind `curr` the whole time, so when `curr` falls off the end, `prev` is sitting on the original last node, which is now the head of the reversed list.
+
+**Mental model:** `prev` lags `curr` by one. When `curr` dies, `prev` IS the answer.
+
+```python
+while curr:
+    curr.next, prev, curr = prev, curr, curr.next
+return prev    # ✓ — the new head
+# return curr   ✗ — this is None at loop exit
+```
+
+This applies to **every iterative LL pattern that uses a lagging pointer**: reversal, finding the second-to-last node, removing the tail, etc. If your "answer" pointer trails the cursor, return the trailing one — the cursor is already off the cliff.
