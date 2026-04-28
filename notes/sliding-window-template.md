@@ -15,7 +15,23 @@
 
 **Complexity:** O(n) time, O(k) space for window state (`k` = alphabet size / window size).
 
-**Template — variable window (longest / shortest satisfying constraint):**
+## The shrink mechanic in plain English
+
+> **"Keep evicting the leftmost char until my new char is no longer a duplicate of anything in the window. THEN it's safe to add the new char."**
+
+That's the whole sliding-window shrink mechanic. Generalize "duplicate" → "constraint violation," and "char" → "element," and you have every variable-window problem.
+
+The `while` shrinks one element at a time off the **left** edge, advancing `left` rightward, until the constraint is restored. Then — and only then — you accept the new right element and record the window.
+
+**Three-beat rhythm per iteration:**
+1. **See** new element on the right
+2. **Shrink** from the left until valid (may take 0, 1, or many steps)
+3. **Add** new element + **record** answer
+
+You never go backward. Each element enters the window once (when `right` advances) and leaves once (when `left` advances past it) — that's why it's **O(n)** even though the inner `while` makes it look O(n²).
+
+## Template — variable window (longest / shortest satisfying constraint)
+
 ```python
 left = 0
 state = ...                 # counter, sum, dict — whatever tracks validity
