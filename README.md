@@ -74,6 +74,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [Two-pass from both sides](notes/two-pass-from-both-sides.md) | LC 42, 123, 135, 238, 724 | O(n) time |
 | [Hash-map complement — check before store](notes/hash-map-complement-pattern.md) | LC 1, 219, 523, 560, 974 | O(n) |
 | [Linked list reversal — iterative & recursive](notes/linked-list-reversal.md) | LC 25, 92, 143, 206, 234 | O(n) |
+| [Loop condition guards — deepest-deref rule](notes/loop-guard-rule.md) | LC 19, 21, 141, 142, 206, 234, 876 | safety / null-protection |
 
 ### Meta
 | Note | Use when |
