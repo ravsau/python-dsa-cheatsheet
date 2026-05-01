@@ -76,6 +76,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [Linked list reversal — iterative & recursive](notes/linked-list-reversal.md) | LC 25, 92, 143, 206, 234 | O(n) |
 | [Loop condition guards — deepest-deref rule](notes/loop-guard-rule.md) | LC 19, 21, 141, 142, 206, 234, 876 | safety / null-protection |
 | [`self.method()` for recursive calls](notes/class-method-self-call.md) | LC 100, 104, 110, 206, 226, 543 | recursion, leetcode-template |
+| [DP — counting ways, not steps](notes/dp-counting-ways-not-steps.md) | LC 70, 139, 198, 322, 1143 | dp_fundamentals, mental_model |
 
 ### Meta
 | Note | Use when |
