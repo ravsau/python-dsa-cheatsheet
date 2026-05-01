@@ -75,6 +75,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [Hash-map complement — check before store](notes/hash-map-complement-pattern.md) | LC 1, 219, 523, 560, 974 | O(n) |
 | [Linked list reversal — iterative & recursive](notes/linked-list-reversal.md) | LC 25, 92, 143, 206, 234 | O(n) |
 | [Loop condition guards — deepest-deref rule](notes/loop-guard-rule.md) | LC 19, 21, 141, 142, 206, 234, 876 | safety / null-protection |
+| [`self.method()` for recursive calls](notes/class-method-self-call.md) | LC 100, 104, 110, 206, 226, 543 | recursion, leetcode-template |
 
 ### Meta
 | Note | Use when |
