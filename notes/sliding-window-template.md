@@ -15,6 +15,65 @@
 
 **Complexity:** O(n) time, O(k) space for window state (`k` = alphabet size / window size).
 
+## The 3-beat rhythm (universal mantra)
+
+> **Three pieces. Expand always. Shrink while [condition]. Record [somewhere].**
+
+Every variable sliding window follows this exact shape:
+
+```python
+for right, x in enumerate(arr):
+    # 1. EXPAND — unconditional. Always add the new right element to window state.
+    state.add(x)
+    
+    # 2. SHRINK — conditional. Drive `left` forward while [condition] holds.
+    while [condition]:
+        # ... record might live HERE ...
+        state.remove(arr[left])
+        left += 1
+    
+    # ... or record might live HERE ...
+
+return answer
+```
+
+**Three operations. Two of them are mechanical (expand always, shrink while …). The third (record) varies by flavor.**
+
+If you can't immediately fill in `[condition]` and `[somewhere]`, you don't yet understand the problem — pause and answer the 4 questions below before writing code.
+
+## The 4-question checklist (answer these BEFORE coding)
+
+1. **Are you looking for LONGEST or SHORTEST?**
+   - LONGEST → shrink while INVALID (fix the violation, then grow)
+   - SHORTEST → shrink while VALID (try to find a smaller valid window)
+
+2. **What does "valid" mean for this problem?**
+   - LC 3: no duplicate in window
+   - LC 209: `sum >= target`
+   - LC 76: window contains all chars of `t` with right multiplicity
+   - LC 424: at most `k` differing chars after replacement
+
+3. **What state do you need?**
+   - `set` → "is x in the window?" (LC 3)
+   - running sum → sum-based problems (LC 209)
+   - `Counter` / dict → frequency-based problems (LC 76, 424, 567)
+
+4. **WHERE do you record the answer?**
+   - LONGEST → AFTER the shrink (window is now valid; we want max size)
+   - SHORTEST → INSIDE the while (every shrink iteration is a candidate)
+
+## The two flavors — side-by-side
+
+| | **LONGEST valid X** | **SHORTEST valid X** |
+|---|---|---|
+| Goal | maximize valid window | minimize valid window |
+| Examples | LC 3, LC 424, LC 1004 | LC 209, LC 76 |
+| Shrink condition | `while INVALID` (fix violation) | `while VALID` (try shorter) |
+| Record at | AFTER while exits | INSIDE while (before subtract) |
+| Sentinel for "not found" | `0` (no positive answer) | `float('inf')` or `len(arr)+1` |
+
+**Same skeleton. Two different (condition, record-location) settings. That's it.**
+
 ## The shrink mechanic in plain English
 
 > **"Keep evicting the leftmost char until my new char is no longer a duplicate of anything in the window. THEN it's safe to add the new char."**
