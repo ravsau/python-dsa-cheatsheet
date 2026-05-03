@@ -78,6 +78,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [Loop condition guards — deepest-deref rule](notes/loop-guard-rule.md) | LC 19, 21, 141, 142, 206, 234, 876 | safety / null-protection |
 | [`self.method()` for recursive calls](notes/class-method-self-call.md) | LC 100, 104, 110, 206, 226, 543 | recursion, leetcode-template |
 | [DP — counting ways, not steps](notes/dp-counting-ways-not-steps.md) | LC 70, 139, 198, 322, 1143 | dp_fundamentals, mental_model |
+| [DP — inductive derivation method](notes/dp-inductive-derivation.md) | LC 53, 70, 91, 139, 198, 322, 1143 | dp_derivation, problem_solving |
 
 ### Meta
 | Note | Use when |
