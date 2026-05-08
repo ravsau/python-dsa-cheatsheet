@@ -99,3 +99,30 @@ If you wrote `dp = [0] * n`, valid indices would be `0..n-1`, and `dp[n]` would 
 ## TL;DR (one line)
 
 > **`[X] * n` creates a list of `n` copies of `X`. Safe for primitives (numbers, strings, booleans, None); aliases for mutable values like lists. For 1D DP, usually `[0] * (n+1)` to allow indexing up to `n` inclusive.**
+
+## Related — collection constructors take an ITERABLE
+
+A close cousin of `[0] * n`: collection constructors like `deque(...)`, `set(...)`, `list(...)`, `tuple(...)` take an **iterable**, not a single element. To start with one element, wrap in a 1-element list:
+
+```python
+from collections import deque
+
+deque(root)           # ❌ TypeError if root isn't iterable (TreeNode isn't)
+deque([root])         # ✓ deque with 1 element (the root)
+
+set(x)                # ❌ if x isn't iterable
+set([x])              # ✓ set with 1 element
+
+list(x)               # ❌ if x isn't iterable
+list([x])             # ✓ list with 1 element (redundant copy though — just use [x])
+
+deque([1, 2, 3])      # ✓ deque with 3 elements
+deque("abc")          # ✓ deque with 3 chars (string IS iterable)
+deque()               # ✓ empty deque (no argument)
+```
+
+**Why the brackets:** the constructor iterates its argument and adds each yielded element. Wrapping `[x]` makes a 1-element iterable that yields `x`. Without brackets, Python tries to iterate the bare value and fails on non-iterables.
+
+**Where it matters:** BFS initialization (`q = deque([root])`), set-from-single (`seen = {x}` is also valid for sets, but `set([x])` works in constructors), starting points for any iterable-init.
+
+**Same pattern as `[0] * n`:** both involve wrapping values in a list literal to satisfy a constructor/operator that expects something list-shaped.
