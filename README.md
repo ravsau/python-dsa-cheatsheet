@@ -87,6 +87,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [**Must memorize cold**](notes/must-memorize-cold.md) | **the syntax muscle-memory drill — read weekly until reflexive** ⭐ |
 | [Interview opener checklist](notes/interview-opener-checklist.md) | first 90 seconds of every round |
 | [Interview narration playbook (7 phases)](notes/interview-narration-playbook.md) | what to say at each phase of a coding interview ⭐ |
+| [Pattern recognition card (15 patterns)](notes/pattern-recognition-card.md) | signal → pattern mapping for fast verbal identification ⭐ |
 | [Built-in vs hand-roll](notes/builtin-vs-handroll.md) | deciding whether to use `[::-1]`, `Counter`, `sorted` vs write the algorithm |
 | [Complexity analysis rules](notes/complexity-analysis-rules.md) | recursion stack, heap-size bounded ops, amortized, hidden Python costs |
 | [Gotchas that eat interviews](notes/gotchas.md) | when "works on small input but fails submission" |
