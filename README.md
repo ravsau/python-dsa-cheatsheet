@@ -57,6 +57,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [Set algebra & | − ^](notes/set-algebra.md) | LC 128, 202, 217, 349, 350, 771, 2215 | set_membership |
 | [zip(*matrix) transpose](notes/zip-star-transpose.md) | LC 36, 48, 566, 832, 867 | matrix |
 | [Multi-key sort (tuple key)](notes/multi-key-sort.md) | LC 56, 253, 692, 791, 937, 1636 | sorting |
+| [`sorted()` vs `list.sort()` cheatsheet](notes/sorted-vs-sort.md) | when to use which, gotchas across types | sorting |
 | [cmp_to_key custom compare](notes/cmp-to-key-custom-compare.md) | LC 179, 937 | custom_sort |
 | [OrderedDict for LRU](notes/ordered-dict-lru.md) | LC 146, 460, 1429 | cache, order_preservation |
 | [itertools.accumulate](notes/itertools-accumulate.md) | LC 53, 303, 560, 724, 1480 | prefix_sum, running_reduction |
