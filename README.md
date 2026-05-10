@@ -51,6 +51,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [bisect — sorted insertion](notes/bisect-sorted-insertion.md) | LC 4, 34, 35, 300, 354, 704, 981 | binary_search, LIS |
 | [@cache for memoization](notes/cache-decorator-for-dp.md) | LC 70, 72, 139, 198, 322, 1143 | dp_1d, dp_2d |
 | [list.pop(0) is O(n) — use deque](notes/list-pop-zero-is-on.md) | LC 102, 127, 200, 994 | bfs |
+| [Stacks and queues via Python built-ins](notes/stacks-and-queues-via-builtins.md) | LC 20, 102, 155, 200, 232, 994 | stack, queue, deque |
 | [2D list aliasing](notes/2d-list-aliasing.md) | LC 62, 63, 64, 72, 79, 221 | grid_dp, backtracking |
 | [sum() with generator](notes/sum-with-generator.md) | LC 191, 202, 338, 771, 1313, 2011 | frequency, boolean_sum |
 | [any() / all() short-circuit](notes/any-all-short-circuit.md) | LC 36, 79, 217, 766, 896 | boolean_reduction |
