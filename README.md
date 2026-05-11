@@ -82,6 +82,7 @@ No intros. No tutorials. No "what is X." Read what's useful, skip the rest.
 | [DP — counting ways, not steps](notes/dp-counting-ways-not-steps.md) | LC 70, 139, 198, 322, 1143 | dp_fundamentals, mental_model |
 | [DP — inductive derivation method](notes/dp-inductive-derivation.md) | LC 53, 70, 91, 139, 198, 322, 1143 | dp_derivation, problem_solving |
 | [In-place vs returns-new](notes/in-place-vs-returns-new.md) | LC 215, 703, every list mutation | mutation_vs_value, side_effect |
+| [Dict + DLL — the O(1) ordering pattern](notes/dict-plus-dll-lru-pattern.md) | LC 146, 460, 432 | lru_cache, oop_design ⭐ |
 
 ### Meta
 | Note | Use when |
